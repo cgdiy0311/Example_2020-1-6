@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>vue</title>
+</head>
+
+<body>
+  <!-- 元素容器 -->
+  <div id="app">
+    <!-- ▼▼▼ el和data的使用 methods方法 ▼▼▼ -->
+    <section class="lesson-1">
+      <h1>Hello:{{name}}</h1>
+      <p>学号是{{num}}</p>
+      <p>{{greet()}}</p>
+      <p>{{greet_parameter('morning')}}</p>
+    </section>
+    <!-- ▲▲▲ el和data的使用 methods方法 ▲▲▲ -->
+    <!-- ▼▼▼ v-bind 属性绑定 ▼▼▼ -->
+    <section class="lesson-2">
+      <h1>bind</h1>
+      <p>
+        <!-- v-bind:的简写是:href -->
+        <a v-bind:href="website" target="_blank">百度</a>
+        <a :href="website2" target="_blank">网易</a>
+      </p>
+      <p v-html="websiteTag">淘宝</p>
+      <p>
+        <input type="text" v-bind:value="website">
+      </p>
+    </section>
+    <!-- ▲▲▲ v-bind 属性绑定 ▲▲▲ -->
+    <!-- ▼▼▼ v-on 事件绑定 ▼▼▼ -->
+    <section class="lesson-3">
+      <h1>event</h1>
+      <div>
+        <p>
+          <!-- v-on:click的简写是@click -->
+          <button @click="subtract(10)">-10</button>
+          <button v-on:click="page--">-</button>
+          <input type="text" v-bind:value="page">
+          <button v-on:click="page++">+</button>
+          <button @click="add(10)">+10</button>
+        </p>
+      </div>
+      <div>
+        <div id="canvas" v-on:mousemove="updateXY">
+          {{x}} , {{y}}
+        </div>
+      </div>
+    </section>
+    <!-- ▲▲▲ v-on 事件绑定 ▲▲▲ -->
+  </div>
+</body>
+<script src="app.js"></script>
+
+</html>
